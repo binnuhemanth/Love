@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sarika</title>
+
+<meta name="theme-color" content="#ff2e63">
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:radial-gradient(circle at top,#0f0c29,#302b63,#24243e);
+    color:white;
+    overflow:hidden;
+}
+
+/* LOCK */
+#lock{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:10;
+}
+
+input{
+    padding:12px;
+    border-radius:20px;
+    border:none;
+    text-align:center;
+}
+
+button{
+    margin-top:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:#ff2e63;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* APP */
+#app{
+    display:none;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+}
+
+/* GLOWING AURA */
+.aura{
+    position:absolute;
+    width:340px;
+    height:340px;
+    background:radial-gradient(circle, rgba(255,80,150,0.35), transparent 70%);
+    border-radius:50%;
+    filter:blur(25px);
+    animation:glowMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove{
+    0%{transform:scale(0.95); opacity:0.6;}
+    100%{transform:scale(1.1); opacity:0.9;}
+}
+
+/* CARD */
+.card{
+    position:relative;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(255,0,120,0.25);
+    max-width:420px;
+}
+
+#typing{
+    white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock">
+<h2>Enter Secret Password 💗</h2>
+<input type="password" id="pass" placeholder="Password">
+<button onclick="unlock()">Open</button>
+<p style="font-size:12px;opacity:0.6;">Hint: your name</p>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+<div class="aura"></div>
+
+<div class="card">
+<h1>Sarika 💗</h1>
+<p id="typing"></p>
+<p>Forever yours,<br><b>Binnu 💗</b></p>
+</div>
+
+</div>
+
+<script>
+function unlock(){
+let p=document.getElementById("pass").value.toLowerCase();
+if(p==="sarika"){
+document.getElementById("lock").style.display="none";
+document.getElementById("app").style.display="flex";
+typeText();
+}else alert("Wrong password 💗");
+}
+
+/* TYPING MESSAGE */
+let text = `Hii raa,
+sorry if em aina disturb chesthe
+as per the day of love ( valentines day )
+to the only one girl (nuve)
+love you so much and still love you so so much 
+and at the same time miss you a lot babe 🥲
+nuv pilusthe bagunde babe ani apudina nuv ala pilichiadhi gurthu vasthe happy anipisthundhi
+and I really wanted to gift you flowers again as last time but I didn't have money actually 😅
+but for sure some day I will buy you flowers again
+and im so happy to be with you
+like you left me but..........(sorry babe)
+endhuko telidu morning lechinapudu nunchi seriously nuve mind antha 🫠
+so as the day to wish you
+to my only girl that I loved
+HAPPY VALENTINES DAY BABE, LOVE YOU SO MUCH 💗
+
+I really want to hug you 🙂
+I miss hugging you so so much
+you know something peaceful gaa anipisthadhi ☺️
+
+kopam penchukoku 😅
+I just wanted to wish you today
+
+stay healthy, jagratha and love you very much  
+next lab exams kuda baga rayii  
+neeku telusaa nenu sem pass aipoina 😉
+
+HAPPY VALENTINES DAY SARIKA 💗
+LOVE YOU 💗`;
+
+let i=0;
+function typeText(){
+if(i<text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(typeText,40);
+}
+}
+</script>
+
+</body>
+</html>
