@@ -83,8 +83,25 @@ button{
     max-width:420px;
 }
 
+/* SCROLLABLE MESSAGE */
 #typing{
     white-space:pre-line;
+    max-height:260px;
+    overflow-y:auto;
+    padding-right:8px;
+    scroll-behavior:smooth;
+}
+
+/* Scrollbar style */
+#typing::-webkit-scrollbar{
+    width:6px;
+}
+#typing::-webkit-scrollbar-thumb{
+    background:#ff2e63;
+    border-radius:10px;
+}
+#typing::-webkit-scrollbar-track{
+    background:transparent;
 }
 </style>
 </head>
@@ -141,22 +158,25 @@ HAPPY VALENTINES DAY BABE, LOVE YOU SO MUCH 💗
 
 I really want to hug you 🙂
 I miss hugging you so so much
-you know something peaceful gaa anipisthadhi ☺️
+you know something peaceful gaa anipisthadhi ninu hug chesukunte andhuke ninu hug chesukotam ante istam naaku🫂
 
 kopam penchukoku 😅
 I just wanted to wish you today
 
-stay healthy, jagratha and love you very much  
-next lab exams kuda baga rayii  
-neeku telusaa nenu sem pass aipoina 😉
+stay healthy, jagratha raa and love you very much  
+next lab exams kuda baga rayii, all the best
+neeku telusaa nenu sem pass aipoina i mean neeku chepevadini kada ela exams kosam apudu ala chepthuna😉
 
 HAPPY VALENTINES DAY SARIKA 💗
-LOVE YOU 💗`;
+MISS YOU 😖🥹
+LOVE YOU 🫂💗`;
 
 let i=0;
 function typeText(){
 if(i<text.length){
-document.getElementById("typing").innerHTML += text.charAt(i);
+let box=document.getElementById("typing");
+box.innerHTML += text.charAt(i);
+box.scrollTop = box.scrollHeight;   // auto scroll while typing
 i++;
 setTimeout(typeText,40);
 }
